@@ -152,11 +152,24 @@ The application uses the following Supabase client APIs:
 1. Clone the repository
 2. Install dependencies:
    - `npm install`
-3. Run the app:
+3. Copy `.env.example` to `.env.local` and set your Supabase values:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_PUBLISHABLE_KEY`
+4. Apply the Supabase migrations in `supabase/migrations`
+5. Run the app:
    - `npm run dev`
-4. Open `http://localhost:5173`
-5. Select a role (viewer, analyst, or admin) to explore data entry and management features
-6. All roles can create and edit transactions; admins can delete records and manage users
+6. Open `http://localhost:5173`
+7. Select a role (viewer, analyst, or admin) to explore data entry and management features
+8. All roles can create and edit transactions; admins can delete records and manage users
+
+## Supabase Backend Deployment
+
+This repository includes an explicit Supabase backend configuration:
+
+- `supabase/migrations/` contains the SQL schema, RLS policies, and signup triggers
+- `src/integrations/supabase/client.ts` is the Supabase client used by the app
+- `.env.example` shows the required environment variables
+- `SUPABASE_API_DOCS.md` documents the backend schema, auth flows, and API usage
 
 ## Assumptions & Tradeoffs
 
